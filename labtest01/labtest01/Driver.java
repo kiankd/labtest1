@@ -19,9 +19,19 @@ public final class Driver
 	 */
 	public static void main(String[] pArgs)
 	{
-		for( Item item : ITEMS )
+		// create new inventory add it to corporation then iterate through
+		Inventory inventory = new Inventory("test_inventory");
+		inventory.stock(ITEM_CEREAL, 1);
+		inventory.stock(ITEM_JAM, 1);
+		inventory.stock(ITEM_BUTTER, 1);
+		
+		Corporation evilCorp = Corporation.getCorporation();
+		evilCorp.addInventory(inventory);
+		
+		for (Item item : inventory)
 		{
-			System.out.println(item.getName());
+			System.out.println(item);
 		}
+		
 	}
 }
